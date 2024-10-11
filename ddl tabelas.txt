@@ -1,0 +1,25 @@
+drop table agricultor cascade constraints;
+drop table fazenda cascade constraints;
+drop table hte_fazenda cascade constraints;
+drop table hte_agricultor cascade constraints;
+
+select * from agricultor;
+
+select * from fazenda;
+
+CREATE TABLE Agricultor (
+   id_agricultor INT PRIMARY KEY,
+   nome_agricultor VARCHAR(255),
+   cpf VARCHAR(11)
+);
+
+CREATE TABLE Fazenda (
+   id_fazenda INT PRIMARY KEY,
+   nome_fazenda VARCHAR(255),
+   cnpj_fazenda VARCHAR(14),
+   email VARCHAR(255),
+   telefone VARCHAR(11),
+   cep VARCHAR(8),
+   id_agricultor INT,
+   CONSTRAINT fk_agricultor FOREIGN KEY (id_agricultor) REFERENCES Agricultor(id_agricultor)
+);
